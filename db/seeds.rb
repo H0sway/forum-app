@@ -8,21 +8,21 @@
 Topic.destroy_all
 Topic.create([
   {
-    name: "Welcome New Users!"
+    title: "Welcome New Users!"
   },
   {
-    name: "Technology"
+    title: "Technology"
   },
   {
-    name: "Sportsball"
+    title: "Sportsball"
   },
   {
-    name: "Video Games"
+    title: "Video Games"
   },
   {
-    name: "Canada Things"
+    title: "Canada Things"
   },
   {
-    name: "Off Topic"
+    title: "Off Topic"
   },
 ])

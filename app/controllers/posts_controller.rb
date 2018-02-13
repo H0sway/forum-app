@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class PostsController < ApplicationController
   before_action :set_post, only: (:show, :destroy)
   def index
     @posts = Post.find(params[:topic_id])
