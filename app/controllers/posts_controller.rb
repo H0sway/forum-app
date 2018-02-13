@@ -1,8 +1,8 @@
-class CommentsController < ApplicationController
-  before_action :set_post, only: (:show, :destroy)
+class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :destroy]
   def index
     @posts = Post.find(params[:topic_id])
-    render json: @post
+    render json: @posts
   end
   def show
     render json: @post
