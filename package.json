@@ -1,7 +1,7 @@
 {
   "name": "forum-app",
   "version": "1.0.0",
-  "description": "Creating a forum for people to discuss things",
+  "description": "Creating a forum in react and rails",
   "main": "server.js",
   "engines": {
     "node": "9.4.0",
@@ -20,11 +20,11 @@
     "url": "git+https://git.generalassemb.ly/wdi-nyc/react-on-rails.git"
   },
   "author": "Joshua Russell",
-  "license": "none",
+  "license": "",
   "bugs": {
-    "url": "https://git.generalassemb.ly/wdi-nyc/react-on-rails/issues"
+    "url": ""
   },
-  "homepage": "https://git.generalassemb.ly/wdi-nyc/react-on-rails#readme",
+  "homepage": "",
   "dependencies": {
     "babel": "*",
     "babel-core": "*",
