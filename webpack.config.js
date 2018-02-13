@@ -50,7 +50,7 @@ const config = {
       },
     }),
     new HtmlWebpackPlugin({
-      title:      'Narwhalll',
+      title:      'Best Forum Ever',
       xhtml:      true,
       inject:     false,
       template:   htmlTemplate,
