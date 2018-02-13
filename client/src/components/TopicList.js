@@ -26,7 +26,7 @@ class TopicList extends Component {
   renderTopicsList() {
     return this.state.topics.map(topic => {
       return (
-        <li key={topic.id}><Link to="/:topic">{topic.title}</Link></li>
+        <li key={topic.id}><Link to={`/topics/${topic.id}`}>{topic.title}</Link></li>
       )
     })
   }

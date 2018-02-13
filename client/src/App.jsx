@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Enter from './components/Enter';
 import TopicList from './components/TopicList';
-// import Posts from './components/Posts';
+import Posts from './components/Posts';
 // import Post from './components/Post';
 
 class App extends Component {
@@ -15,8 +15,8 @@ class App extends Component {
         <Header />
         <Route exact path="/" component={Enter} />
         <Route exact path="/topics" component={TopicList} />
-               {/* <Route exact path="/:topic" component={Posts} />
-                <Route exact path="/post" component={Post} /> */}
+        <Route exact path="/topics/:id" component={Posts} />
+        {/*<Route exact path="/post" component={Post} /> */}
         <Footer />
         </div>
       </Router>
