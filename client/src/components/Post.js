@@ -8,10 +8,11 @@ class Post extends Component {
     this.state = {
       dataLoaded: false,
       comments: [],
-      topic_id: null,
+      postTitle: null,
+      topicId: null,
       name: '',
       comment_text: '',
-      fireRedirect: false,
+      commentCount: 0,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -24,8 +25,10 @@ class Post extends Component {
     .then(axios.spread((comments, posts) => {
       // console.log("Harambe", comments, posts);
       this.setState({
-        topic_id: posts.data.topic_id
+        postTitle: posts.data.title,
+        topicId: posts.data.topic_id,
       })
+      // console.log(this.state.post);
       if (comments.data.length) {
         const array = comments.data.filter(comment => comment.post_id == this.props.match.params.id);
         // console.log("Not Harambe", array);
@@ -33,6 +36,7 @@ class Post extends Component {
           this.setState({
             dataLoaded: true,
             comments: array,
+            commentCount: array.length,
           })
         }
       }
@@ -78,7 +82,9 @@ class Post extends Component {
       }
     })
     .then(comment => {
-      this.forceUpdate()
+      this.setState({
+        commentCount: this.state.commentCount + 1
+      })
     })
     .catch(err => {
       console.log("Create a new comment error", err);
@@ -116,10 +122,11 @@ class Post extends Component {
   render() {
     return(
       <div className="Post">
-        <button><Link to={`/topics/${this.state.topic_id}`}>Go Back</Link></button>
+        <h3>{this.state.postTitle}</h3>
+        <button><Link to={`/topics/${this.state.topicId}`}>Go Back</Link></button>
         {this.renderComments()}
         {this.newComment()}
-        {this.state.fireRedirect ? <Redirect to={`/post/${this.props.match.params.id}`} /> : ''}
+        {this.state.fireRedirect ? <Redirect to={`/topics/${this.state.topicId}`} /> : ''}
       </div>
     )
   }
