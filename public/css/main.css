@@ -1,0 +1,201 @@
+@import url(https://fonts.googleapis.com/css?family=Nanum+Pen+Script|News+Cycle);html {
+  text-align: center;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background-image: url("https://i.imgur.com/erytr2x.jpg");
+  background-repeat: none;
+  background-position: fixed;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: #000000;
+  padding: 20px 10px 3px 10px;
+}
+
+header h1 {
+  color: #FFD500;
+}
+
+footer {
+  background: #9CA69D;
+  font-family: 'Nanum Pen Script', cursive;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  max-height: 30px;
+  width: 100%;
+  padding: .5em 0 2em 0;
+}
+
+.Enter {
+  margin: 8em auto;
+  color: #FFE071;
+  max-width: 30em;
+  padding: 1em 2em 2em 2em;
+  border: 5px solid #ffffff;
+  border-radius: 15%;
+}
+
+.enter-button {
+  margin: 0 auto;
+  background-color: #4E932B;
+  padding: .5em 1em .5em 1em;
+  max-width: 5em;
+  border-radius: 25%;
+}
+
+.enter-button a {
+  color: #84FFB2;
+}
+
+.TopicList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.TopicList li {
+  display: inline-flex;
+  margin: 3em auto;
+  padding: .5em;
+  border: 2px solid #63C663;
+}
+
+.TopicList a {
+  color: #63C663;
+}
+
+.TopicList a:hover {
+  color: #00FF00;
+}
+
+.Posts {
+  margin: 5em auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Posts h3 {
+  color: #FF6919;
+}
+
+.Posts form {
+  background-color: #400500;
+  margin: 0 auto;
+  margin-bottom: 5em;
+  text-align: center;
+  padding: .4em;
+  max-width: 20em;
+  border: 2px solid #97E3B4;
+}
+
+.Posts form input {
+  text-align: center;
+  margin: .3em auto;
+}
+
+.new-post h3 {
+  color: #ffffff;
+}
+
+.back a {
+  color: #ffffff;
+}
+
+.back a:hover {
+  color: #EBB2AB;
+}
+
+.single-post {
+  background-color: #6E0600;
+  margin: .5em auto;
+  max-width: 15em;
+  border: .2em solid #930800;
+  padding: 1em;
+}
+
+.single-post a {
+  margin: .2em auto;
+  color: #63C68A;
+}
+
+.Post {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.Post h3 {
+  color: #FF8619;
+}
+
+.Post button {
+  margin: 1em auto;
+  max-width: 4em;
+  padding: .5em;
+  border-radius: 15%;
+}
+
+.Post p {
+  color: #FF6919;
+}
+
+.comment {
+  text-align: left;
+  background-color: #A81200;
+  max-width: 15em;
+  margin: 1em auto;
+  border: 2px solid #E25E00;
+  padding: 1em;
+}
+
+.comment h4 {
+  color: #FFD500;
+}
+
+.comment article {
+  color: #FFFF72;
+}
+
+.new-comment form {
+  margin-bottom: 5em;
+}
+
+.new-comment label {
+  color: #FFFFFF;
+}
+
+.Edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Edit form {
+  background-color: #400500;
+  margin: 0 auto;
+  margin-bottom: 5em;
+  text-align: center;
+  padding: .6em;
+  max-width: 80em;
+  border: 2px solid #97E3B4;
+}
+
+.Edit form input {
+  text-align: center;
+  margin: .5em auto;
+}
+
+.Edit form label {
+  margin: .5em auto;
+  color: #E25E00;
+}
