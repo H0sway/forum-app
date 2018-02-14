@@ -22,12 +22,13 @@ class Post extends Component {
       axios.get(`/api/posts/${this.props.match.params.id}`)
       ])
     .then(axios.spread((comments, posts) => {
-      console.log("Harambe", comments, posts);
+      // console.log("Harambe", comments, posts);
       this.setState({
         topic_id: posts.data.topic_id
       })
-      if (posts.data.count) {
-        const array = data.data.filter(comment => comment.post_id == this.props.match.params.id);
+      if (comments.data.length) {
+        const array = comments.data.filter(comment => comment.post_id == this.props.match.params.id);
+        // console.log("Not Harambe", array);
         if (array.length) {
           this.setState({
             dataLoaded: true,
@@ -43,11 +44,13 @@ class Post extends Component {
   renderComments() {
     if (this.state.dataLoaded) {
       return this.state.comments.map(comment => {
-        <div className="comment">
-          <h4>{comment.name}</h4>
-          <article>{comment.comment_text}</article>
-          <button onClick={this.editComment}>Edit</button>
-        </div>
+        return(
+          <div className="comment" key={comment.id}>
+            <h4>{comment.name}</h4>
+            <article>{comment.comment_text}</article>
+            <button onClick={this.editComment}>Edit</button>
+          </div>
+        )
       })
     }
     else {
@@ -71,13 +74,11 @@ class Post extends Component {
       data: {
         name: this.state.name,
         comment_text: this.state.comment_text,
-        post_id: this.props.match.params.id
+        post_id: this.props.match.params.id,
       }
     })
     .then(comment => {
-      this.setState({
-        fireRedirect: true,
-      })
+      this.forceUpdate()
     })
     .catch(err => {
       console.log("Create a new comment error", err);
