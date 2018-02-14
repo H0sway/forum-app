@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class TopicList extends Component {
   constructor() {
@@ -10,13 +11,12 @@ class TopicList extends Component {
     }
   }
   componentDidMount() {
-    fetch('/api/topics')
-    .then(res => res.json())
+    axios.get('/api/topics')
     .then(topics => {
       console.log(topics);
       this.setState({
         dataLoaded: true,
-        topics: topics,
+        topics: topics.data,
       })
     })
     .catch(err => {

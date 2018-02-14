@@ -26,6 +26,7 @@
   },
   "homepage": "",
   "dependencies": {
+    "axios": "^0.17.1",
     "babel": "*",
     "babel-core": "*",
     "babel-loader": "^7.1.2",

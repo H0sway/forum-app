@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :destroy]
   def index
-    @posts = Post.find(params[:topic_id])
+    @posts = Post.all
     render json: @posts
   end
   def show
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   end
   private
   def post_params
-    params.permit(:title)
+    params.require(:post).permit(:title, :topic_id)
   end
   def set_post
     @post = Post.find(params[:id])

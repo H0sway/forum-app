@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Enter from './components/Enter';
 import TopicList from './components/TopicList';
 import Posts from './components/Posts';
-// import Post from './components/Post';
+import Post from './components/Post';
 
 class App extends Component {
   render() {
@@ -16,7 +16,7 @@ class App extends Component {
         <Route exact path="/" component={Enter} />
         <Route exact path="/topics" component={TopicList} />
         <Route exact path="/topics/:id" component={Posts} />
-        {/*<Route exact path="/post" component={Post} /> */}
+        <Route exact path="/post/:id" component={Post} />
         <Footer />
         </div>
       </Router>
