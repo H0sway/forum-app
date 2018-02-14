@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     end
   end
   def update
-    if @comment.update
+    if @comment.update (comment_params)
       puts "Updated comment"
       render json: @comment
     else
