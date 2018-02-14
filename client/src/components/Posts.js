@@ -53,6 +53,7 @@ class Posts extends Component {
   newPost() {
     return(
       <div className="new-post">
+        <h3>Create a new post:</h3>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -96,10 +97,10 @@ class Posts extends Component {
   render() {
     return(
       <div className="Posts">
-        {this.newPost()}
         {this.renderPosts()}
+        {this.newPost()}
         {this.state.fireRedirect ? <Redirect to={this.state.redirectUrl} /> : ''}
-        <div><Link to="/topics">Back to Topics</Link></div>
+        <div className="back"><Link to="/topics">Back to Topics</Link></div>
       </div>
     )
   }
