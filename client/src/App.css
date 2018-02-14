@@ -86,9 +86,14 @@ footer {
   justify-content: center;
 }
 
+.Posts h3 {
+  color: #FF6919;
+}
+
 .Posts form {
   background-color: #400500;
   margin: 0 auto;
+  margin-bottom: 5em;
   text-align: center;
   padding: .4em;
   max-width: 20em;
@@ -106,6 +111,10 @@ footer {
 
 .back a {
   color: #ffffff;
+}
+
+.back a:hover {
+  color: #EBB2AB;
 }
 
 .single-post {
@@ -138,8 +147,13 @@ footer {
   border-radius: 15%;
 }
 
+.Post p {
+  color: #FF6919;
+}
+
 .comment {
   text-align: left;
+  background-color: #A81200;
   max-width: 15em;
   margin: 1em auto;
   border: 2px solid #E25E00;
@@ -154,6 +168,14 @@ footer {
   color: #FFFF72;
 }
 
+.new-comment form {
+  margin-bottom: 5em;
+}
+
+.new-comment label {
+  color: #FFFFFF;
+}
+
 .Edit {
   display: flex;
   flex-direction: column;
@@ -163,6 +185,7 @@ footer {
 .Edit form {
   background-color: #400500;
   margin: 0 auto;
+  margin-bottom: 5em;
   text-align: center;
   padding: .6em;
   max-width: 80em;
