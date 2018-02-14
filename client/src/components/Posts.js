@@ -97,10 +97,10 @@ class Posts extends Component {
   render() {
     return(
       <div className="Posts">
+        <div className="back"><Link to="/topics">Back to Topics</Link></div>
         {this.renderPosts()}
         {this.newPost()}
         {this.state.fireRedirect ? <Redirect to={this.state.redirectUrl} /> : ''}
-        <div className="back"><Link to="/topics">Back to Topics</Link></div>
       </div>
     )
   }

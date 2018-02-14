@@ -8,6 +8,9 @@ This app was created using React on Rails and Webpack.
 
 The purpose of this app was to create a place for users to discuss with other users online. There's no real focus of conversation. The provided topics cover a variety of possible discussions users could look to start or join in.
 
+### Heroku Link:
+https://stark-bayou-57330.herokuapp.com
+
 ### MVP
 
 1. Components listing each topic, all the posts inside of a topic, and all the comments to a post.
