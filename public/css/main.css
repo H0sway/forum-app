@@ -6,7 +6,7 @@
   background-image: url("https://i.imgur.com/erytr2x.jpg");
   background-repeat: none;
   background-position: fixed;
-  background-size: stretch;
+  background-size: cover;
 }
 
 a {
