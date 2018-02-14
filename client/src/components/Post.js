@@ -12,7 +12,7 @@ class Post extends Component {
       topicId: null,
       name: '',
       comment_text: '',
-      commentCount: 0,
+      fireRedirect: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -83,7 +83,7 @@ class Post extends Component {
     })
     .then(comment => {
       this.setState({
-        commentCount: this.state.commentCount + 1
+        fireRedirect: true
       })
     })
     .catch(err => {
