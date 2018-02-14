@@ -14,6 +14,7 @@ class Edit extends Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.deleteComment = this.deleteComment.bind(this);
   }
   componentDidMount() {
     axios({
@@ -59,31 +60,48 @@ class Edit extends Component {
       console.log("Update error", err);
     })
   }
+  deleteComment() {
+    axios({
+      method: 'DELETE',
+      url: `/api/comments/${this.state.comment.id}`,
+    })
+    .then(data => {
+      this.setState({
+        fireRedirect: true,
+      })
+    })
+    .catch(err => {
+      console.log("Delete error", err);
+    })
+  }
   renderEdit() {
     if (this.state.dataLoaded) {
       return(
-        <form onSubmit={this.handleSubmit}>
-          <label>Name</label>
-          <br />
-          <input
-            type="text"
-            value={this.state.name}
-            name="name"
-            onChange={this.handleChange}
-            required
-          />
-          <br />
-          <label>Comment</label>
-          <br />
-          <textarea
-            value={this.state.comment_text}
-            name="comment_text"
-            onChange={this.handleChange}
-            required
-          />
-          <br />
-          <input type="submit" value="Update Comment!" />
-        </form>
+        <div className="edit-form">
+          <form onSubmit={this.handleSubmit}>
+            <label>Name</label>
+            <br />
+            <input
+              type="text"
+              value={this.state.name}
+              name="name"
+              onChange={this.handleChange}
+              required
+            />
+            <br />
+            <label>Comment</label>
+            <br />
+            <textarea
+              value={this.state.comment_text}
+              name="comment_text"
+              onChange={this.handleChange}
+              required
+            />
+            <br />
+            <input type="submit" value="Update Comment!" />
+          </form>
+          <button onClick={this.deleteComment}>Delete Comment</button>
+        </div>
       )
     }
     else {

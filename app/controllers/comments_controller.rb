@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
   def destroy
     if @comment.delete
       puts "Deleted comment"
-      render json: @comments
+      render json: Comment.all
     else
       raise "Error!"
     end
