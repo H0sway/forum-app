@@ -52,7 +52,7 @@ class Post extends Component {
           <div className="comment" key={comment.id}>
             <h4>{comment.name}</h4>
             <article>{comment.comment_text}</article>
-            <button onClick={this.editComment}>Edit</button>
+            <button><Link to={`/edit/${comment.id}`}>Edit</Link></button>
           </div>
         )
       })

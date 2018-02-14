@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     end
   end
   def update
-    if @song.update
+    if @comment.update
       puts "Updated comment"
       render json: @comment
     else
@@ -37,6 +37,6 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:name, :comment_text, :post_id)
   end
   def set_comment
-    @comment = Comment.find(params[:post_id])
+    @comment = Comment.find(params[:id])
   end
 end
