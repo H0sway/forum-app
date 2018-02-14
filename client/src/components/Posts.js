@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 class Posts extends Component {
   constructor() {
@@ -15,15 +16,12 @@ class Posts extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    fetch({
-      method: 'GET',
-      url: '/api/posts'
-    })
-    .then(res => res.json())
+    axios.get('/api/posts')
     .then(data => {
-      if (data.count) {
-        const posts = data.filter(post => post.topic_id)
-        if (posts.count) {
+      console.log(data.data.length);
+      if (data.data.length) {
+        const posts = data.data.filter(post => post.topic_id == this.props.match.params.id)
+        if (posts.length) {
           this.setState({
             dataLoaded: true,
             posts: posts,
@@ -40,7 +38,7 @@ class Posts extends Component {
     if (this.state.dataLoaded) {
       return this.state.posts.map(post => {
         return (
-          <div className="Post" key={post.id}><p>{post.title}</p></div>
+          <div className="single-post" key={post.id}><Link to={`/post/${post.id}`}>{post.title}</Link></div>
         )
       })
     }
@@ -54,11 +52,12 @@ class Posts extends Component {
   }
   newPost() {
     return(
-      <div className="New Post">
+      <div className="new-post">
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={this.state.postTitle}
+            name="postTitle"
             onChange={this.handleChange}
             placeholder="Post Title Goes Here"
             required
@@ -78,16 +77,20 @@ class Posts extends Component {
   }
   handleSubmit(event) {
     event.preventDefault()
-    fetch({
-      method: 'POST',
-      url: '/api/posts'
+    axios.post('/api/posts', {
+      post: {
+        title: this.state.postTitle,
+        topic_id: this.props.match.params.id,
+      }
     })
-    .then(res => res.json())
     .then(post => {
       this.setState({
+        redirectUrl: `/post/${post.data.id}`,
         fireRedirect: true,
-        redirectUrl: `/post/:id`,
       })
+    })
+    .catch(err => {
+      console.log("Create a new post error", err);
     })
   }
   render() {
@@ -96,6 +99,7 @@ class Posts extends Component {
         {this.newPost()}
         {this.renderPosts()}
         {this.state.fireRedirect ? <Redirect to={this.state.redirectUrl} /> : ''}
+        <div><Link to="/topics">Back to Topics</Link></div>
       </div>
     )
   }

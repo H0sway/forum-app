@@ -26,3 +26,16 @@ Topic.create([
     title: "Off Topic"
   },
 ])
+
+Post.destroy_all
+Post.create([
+  {
+    title: "Read Before Posting!",
+    topic_id: 1
+  },
+  {
+    title: "Which is better, windows or apple?",
+    topic_id: 2
+  }
+])
+
